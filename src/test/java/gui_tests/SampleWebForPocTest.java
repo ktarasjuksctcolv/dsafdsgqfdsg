@@ -17,7 +17,7 @@ public class SampleWebForPocTest {
     @BeforeAll
     public static void setup() {
         startTime = System.currentTimeMillis();
-        Configuration.headless = true;
+//          Configuration.headless = true;
     }
 
     @AfterAll

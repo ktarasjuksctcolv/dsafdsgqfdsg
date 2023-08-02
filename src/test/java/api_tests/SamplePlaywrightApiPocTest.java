@@ -26,7 +26,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class SamplePlaywrightApiPocTest {
-    private static Playwright playwright;
     private static APIRequestContext request;
     private static long startTime;
 
@@ -41,7 +40,7 @@ public class SamplePlaywrightApiPocTest {
     public static void setup() {
         startTime = System.currentTimeMillis();
 
-        playwright = Playwright.create();
+        Playwright playwright = Playwright.create();
         request = playwright.request().newContext(new APIRequest.NewContextOptions()
                 // All requests we send go to this API endpoint.
                 .setBaseURL("https://petstore.swagger.io/"));
@@ -49,8 +48,6 @@ public class SamplePlaywrightApiPocTest {
 
     @Test
     public void addPet() {
-        String requestBody = "{ \"id\": 10, \"name\": \"myPet\", \"status\": \"available\" }";
-
         Map<String, Object> data = new HashMap<>();
         data.put("id", 10);
         data.put("name", "doggie");
